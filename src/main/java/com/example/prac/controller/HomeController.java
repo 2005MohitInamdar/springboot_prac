@@ -1,11 +1,25 @@
 package com.example.prac.controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HomeController{
     @GetMapping("/")
-    public String hello(){
+    public String home(){
         return "Hello World";
+    }
+
+    @GetMapping("/mul/{num}")
+    public int mul(@PathVariable int num){
+        return num*num;
+    }
+
+    @GetMapping("/add")
+    public int add(@RequestParam int n){
+        return n+n;
+    }
+
+    @PostMapping("/greet")
+    public String greet(@RequestParam String name){
+        return "Hello" +name;
     }
 }
